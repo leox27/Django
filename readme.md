@@ -6,7 +6,7 @@ The goal of this repository is to document my progress from basic environment se
 
 ## 🚀 What I Am Learning
 
-I am mastering backend web development. 
+I am mastering backend web development.
 The journey progresses logically through the following stages:
 
 1. **Foundation & Architecture:** Setting up isolated Python environments, understanding the request-response cycle, and the MVT design pattern.
