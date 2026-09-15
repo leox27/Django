@@ -1,0 +1,134 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>BlogDetails</title>
+  </head>
+  <body>
+    <h1>Blog Filter Page</h1>
+
+    {% comment %} Text Filter {% endcomment %}
+    <h2>Text Filter</h2>
+    <p>Title (Normal): <b>{{ post.title }}</b></p>
+    <p>Title (Uppercase): <b>{{ post.title | upper}}</b></p>
+    <p>Title (Lowercase): <b>{{ post.title | lower}}</b></p>
+    <p>Title (Capitalize): <b>{{ post.title | capfirst}}</b></p>
+    <p>Title (Titlecase): <b>{{ post.title | title}}</b></p>
+    <p>Title (TruncateCharacters): <b>{{ post.title | truncatechars:7}}</b></p>
+    <p>Title (TruncateWords): <b>{{ post.title | truncatewords:2}}</b></p>
+    <p>Title (LineBreaks): <b>{{ post.title | linebreaks}}</b></p>
+    <hr />
+
+    {% comment %} Number Filter {% endcomment %}
+    <h2>Number Filter</h2>
+    <p>Original Price: {{ post.price }}</p>
+    <p>Original Price(+27): {{ post.price | add:27 }}</p>
+    {# divisibleby filter #} {% if post.number|divisibleby:2 %}
+    <p>{{ post.number }} is Even</p>
+    {% else %}
+    <p>{{ post.number }} is Odd</p>
+    {% endif %} {% comment %} List Filter {% endcomment %}
+    <h2>List Filter</h2>
+    <p>List of Tags: <b>{{ post.tags }}</b></p>
+    <p>First Tags: <b>{{ post.tags | first }}</b></p>
+    <p>Last Tags: <b>{{ post.tags | last }}</b></p>
+    <p>Total Tags: <b>{{ post.tags | length }}</b></p>
+    <p>Slice: <b>{{ post.tags | slice:"0:2" }}</b></p>
+    <p>Reverse Slice: <b>{{ post.tags | slice:"::-1" }}</b></p>
+    <p>Join Tags: <b>{{ post.tags | join:"-" }}</b></p>
+
+    {% comment %} Yes/No & Plural {% endcomment %}
+    <h2>Yes/No & Plural</h2>
+    <p>Author Available?: <b>{{ post.author | yesno:"Yes,No,May be" }}</b></p>
+    {# checks that var has value or not #}
+    <p>Author Available?: <b>{{ post.comments_count }} comments</b></p>
+    <p>
+      Author Available?:
+      <b
+        >{{ post.comments_count }} comment{{ post.comments_count |
+        pluralize}}</b
+      >
+    </p>
+    {# if var has more than one value it join 's' #} {% comment %} Date Filter
+    {% endcomment %}
+    <h2>Date Filters</h2>
+    <p>Original DateTime: {{ post.created_at }}</p>
+
+    <p>Date (D d M Y): {{ post.created_at|date:"D d M Y" }}</p>
+    <p>Date (l, d F Y): {{ post.created_at|date:"l, d F Y" }}</p>
+    <p>Date (d/m/Y): {{ post.created_at|date:"d/m/Y" }}</p>
+    <p>Date (d M, Y): {{ post.created_at|date:"d M, Y" }}</p>
+
+    <p>Day: {{ post.created_at|date:"d" }}</p>
+    <p>Day Name (Short): {{ post.created_at|date:"D" }}</p>
+    <p>Day Name (Full): {{ post.created_at|date:"l" }}</p>
+
+    <p>Month (Number): {{ post.created_at|date:"m" }}</p>
+    <p>Month (Short): {{ post.created_at|date:"M" }}</p>
+    <p>Month (Full): {{ post.created_at|date:"F" }}</p>
+
+    <p>Year (2 Digit): {{ post.created_at|date:"y" }}</p>
+    <p>Year (4 Digit): {{ post.created_at|date:"Y" }}</p>
+
+    <hr />
+
+    {% comment %} Time Filter {% endcomment %}
+    <h2>Time Filters</h2>
+
+    <p>Time (Default): {{ post.created_at|time }}</p>
+    {# 5:30 a.m. #}
+    <p>Time (24 Hour): {{ post.created_at|time:"H:i:s" }}</p>
+    {# 05:30:00 #}
+    <p>Time (24 Hour Without Seconds): {{ post.created_at|time:"H:i" }}</p>
+    {# 05:30 #}
+    <p>Time (12 Hour): {{ post.created_at|time:"h:i:s A" }}</p>
+    {# 05:30:00 AM #}
+    <p>Time (12 Hour Without Seconds): {{ post.created_at|time:"h:i A" }}</p>
+    {# 05:30 AM #}
+
+    <p>Hour (24 Hour): {{ post.created_at|time:"H" }}</p>
+    {# 05 #}
+    <p>Hour (12 Hour): {{ post.created_at|time:"h" }}</p>
+    {# 05 #}
+    <p>Minutes: {{ post.created_at|time:"i" }}</p>
+    {# 30 #}
+    <p>Seconds: {{ post.created_at|time:"s" }}</p>
+    {# 00 #}
+    <p>AM/PM: {{ post.created_at|time:"A" }}</p>
+    {# AM #}
+
+    <hr />
+
+    {% comment %} Timesince Filter {% endcomment %}
+    <h2>Timesince Filter</h2>
+    <p>Post Created: {{ post.created_at|timesince }} ago</p>
+    <p>Post Created: {{ post.created_at|timesince }}</p>
+
+    <hr />
+
+    {% comment %} Timeuntil Filter {% endcomment %}
+    <h2>Timeuntil Filter</h2>
+    <p>Event Starts In: {{ post.event_date|timeuntil }}</p>
+
+    <hr>
+
+    {% comment %} URL Encode Filter {% endcomment %}
+    <h2>URL Encode Filter</h2>
+    <p>Original: {{ post.title }}</p>
+    <p>URL Encoded: {{ post.title|urlencode }}</p>
+    <p>
+      URL with Title: https://example.com/search?q={{ post.title|urlencode }}
+    </p>
+
+    <hr />
+
+    {% comment %} Float Format Filter {% endcomment %}
+    <h2>Float Format Filter</h2>
+    <p>Original Price: {{ post.price }}</p>
+    <p>2 Decimal Places: {{ post.price|floatformat:2 }}</p>
+    <p>1 Decimal Place: {{ post.price|floatformat:1 }}</p>
+    <p>0 Decimal Places: {{ post.price|floatformat:0 }}</p>
+    <p>Default Float Format: {{ post.price|floatformat }}</p>
+  </body>
+</html>
