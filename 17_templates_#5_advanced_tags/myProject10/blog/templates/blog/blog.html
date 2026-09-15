@@ -1,0 +1,45 @@
+{% extends "base.html" %}
+
+{% block title %} Blog page {% endblock title %}
+{% load static %}
+{% block corecss %}
+<link rel="stylesheet" href="{% static 'blog/css/style.css' %}">
+{% endblock %}
+
+{% block content %}
+<h1>Blog Us</h1>
+
+{% comment %} regroup {% endcomment %}
+{% regroup students by class as grouped_students %} {# students is list & class is  #}
+<ul>
+    {% for group in grouped_students %}
+    <li>Class: {{group.grouper}}
+        <ul>
+            {% for student in group.list %}
+                <li>{{student.name}}</li>
+            {% endfor %}
+        </ul>
+    </li>
+    {% endfor %}
+</ul>
+
+{% comment %} widthratio {% endcomment %}
+<p>Progress: {% widthratio 50 100 100 as width%} {{width}} %</p> {# (50/100)*100 #}
+
+{% comment %} spaceless {% endcomment %}
+{% spaceless %}
+<span> This is  </span>
+<span> spaceless example </span>
+{% endspaceless %}
+
+{% comment %} filter {% endcomment %}
+{% filter upper %}
+<br>
+This case will be converted into Uppercase.
+{% endfilter %}
+
+{% comment %} combining filter + tags {% endcomment %}
+{% for student in students %}
+<p>{{student.name|lower}} in the class {{student.class|add:"+1"}}</p>
+{% endfor %}
+{% endblock content %}
