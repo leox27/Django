@@ -1,0 +1,25 @@
+body{
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: aqua;
+    text-align: center;
+    padding: 20px;
+}
+
+nav ul{
+    list-style: none;
+    background-color: brown;
+    padding: 10px;
+}
+
+nav ul li a{
+    color: white;
+    text-decoration: none;
+}
+
+h1{
+    color: royalblue;
+}
+
+#leo_image{
+    width: 35%;
+}
