@@ -1430,11 +1430,3 @@ Images → static/images/
 Navigation → named URLs
 Forms → POST + CSRF protection
 ```
-
----
-
-## 54. What's Next
-
-After understanding template inheritance and static files, the next step is to continue learning Django Template Language features and use them to build more dynamic pages.
-
-The concepts learned here will also become useful when building larger Django applications where many pages share the same layout.
