@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>#1 Template basics</title>
+</head>
+<body>
+    <h1>Template Basics</h1>
+
+    <! -- This is 1st comment -->
+
+    {% comment %} 
+    This is 2nd comment 
+    {% endcomment %}
+
+    {# This is 3rd comment #}
+
+    <p>
+        This is simple template to demonstrate basic HTML structure. 
+    </p>
+    <p>Welcome to the blog home page!</p>
+    <p>Here you can find the latest posts and updates!</p>
+
+    {% comment %} Single variable {% endcomment %}
+    <p>Name: {{name}}</p>
+    <p>Age: {{age}}</p>
+
+    {% comment %} List access {% endcomment %}
+    <p>First skill: {{skills.0}}</p>
+    <p>Skills: {{skills}}</p>
+
+    {% comment %} Object attribute {% endcomment %}
+    <p>Username: {{user.name}}</p>
+    <p>User Age: {{user.age}}</p>
+
+    {% comment %} Dictionary {% endcomment %}
+    <h1>Blog Information</h1>
+    <p>Title: {{blog.title}}</p>
+    <p>Content: {{blog.content}}</p>
+    <p>Content: {{blog.content | safe}}</p>
+    <p>Created at: {{blog.created_at}}</p>
+    <p>Created at: {{blog.created_at | safe}}</p>
+    <p>Author name: {{blog.author.name}}</p>
+
+    {% comment %} Default value {% endcomment %}
+    <p>Default value: {{empty_value | default:"NA / Not available / Not provided / Not Applicable / None"}}</p>
+    <p>default_if_none: {{default_if_none | default_if_none:"No data"}}</p>
+</body>
+</html>
