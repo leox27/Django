@@ -1,0 +1,30 @@
+{% extends "base.html" %}
+
+{% block title %}Student Profile{% endblock title %}
+
+{% block content %}
+
+<div class="profile-card">
+    <h2>{{ student.name }}</h2>
+
+    <p><strong>Age:</strong> {{ student.age }}</p>
+    <p><strong>Course:</strong> {{ student.course }}</p>
+    <p><strong>College:</strong> {{ student.college }}</p>
+    <p><strong>Email:</strong> {{ student.email }}</p>
+
+    <h3>Skills</h3>
+
+    <ul>
+        {% for skill in student.skills %}
+            <li>{{ skill }}</li>
+        {% endfor %}
+    </ul>
+
+    {% if student.active %}
+        <p class="active">Status: Active</p>
+    {% else %}
+        <p class="inactive">Status: Inactive</p>
+    {% endif %}
+</div>
+
+{% endblock content %}
