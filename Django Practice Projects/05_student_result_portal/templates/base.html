@@ -1,0 +1,72 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}Student Result Portal{% endblock title %}</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+</head>
+<body>
+    <header>
+        <div class="logo">
+            <h1>Student Portal</h1>
+            <p>Academic Result Management System</p>
+        </div>
+
+        <nav>
+            <a href="/">Home</a>
+            <a href="/results/">Results</a>
+            <a href="#">Students</a>
+            <a href="#">About</a>
+            <a href="#">Contact</a>
+        </nav>
+    </header>
+
+    <section class="hero">
+        <h2>{% block page_heading %}Student Result Portal{% endblock page_heading %}</h2>
+
+        <p>
+            Check student academic performance, marks,
+            grades and examination results.
+        </p>
+    </section>
+
+    <main>
+        {% block content %}
+        {% endblock content %}
+    </main>
+
+    <footer>
+        <div class="footer-content">
+            <div>
+                <h3>Student Portal</h3>
+                <p>
+                    A simple academic result management
+                    portal built with Django.
+                </p>
+            </div>
+
+            <div>
+                <h3>Quick Links</h3>
+                <p><a href="/">Home</a></p>
+                <p><a href="/results/">Results</a></p>
+            </div>
+
+            <div>
+                <h3>Contact</h3>
+                <p>Email: support@example.com</p>
+                <p>Phone: +91 98765 43210</p>
+            </div>
+
+        </div>
+        <hr>
+
+        <p class="copyright">
+            © 2026 Student Result Portal. All Rights Reserved.
+        </p>
+
+    </footer>
+</body>
+</html>
