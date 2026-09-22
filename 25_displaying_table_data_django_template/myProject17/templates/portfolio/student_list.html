@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio</title>
+</head>
+<body>
+    <h1>Student List</h1>
+    
+    <!-- Added starting at line 10 to display the data -->
+    <table border="1">
+        <thead>
+            <tr>
+                <!-- Update these headers based on your actual Project model fields -->
+                <th>Project Name</th>
+                <th>Description</th> 
+                <th>Skills</th> 
+            </tr>
+        </thead>
+        <tbody>
+            {% for student in students %}
+            <tr>
+                <!-- Replace .name and .description with your actual model attributes -->
+                <td>{{ student.title }}</td>
+                <td>{{ student.description }}</td>
+                <td>{{ student.skills }}</td>
+            </tr>
+            {% empty %}
+            <tr>
+                <td colspan="3">No students/projects found.</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    
+</body>
+</html>
